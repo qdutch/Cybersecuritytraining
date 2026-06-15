@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleared GovTech Partners — From cleared service to GovTech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E1B2E;
+    --navy-d:#091322;
+    --navy-l:#16283f;
+    --brass:#B08644;
+    --brass-l:#D2A85C;
+    --paper:#F6F2EA;
+    --paper-d:#EBE4D6;
+    --ink:#11151c;
+    --muted:#5d6573;
+    --line:rgba(176,134,68,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:-.01em}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:14px;display:inline-block;
+  }
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,27,46,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;color:#fff}
+  .logo span{color:var(--brass-l)}
+  .nav-cta{
+    font-size:.9rem;font-weight:600;color:var(--navy);
+    background:var(--brass-l);padding:9px 18px;border-radius:6px;text-decoration:none;
+    transition:transform .15s ease,background .15s ease;
+  }
+  .nav-cta:hover{background:#fff;transform:translateY(-1px)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:#fff}
+  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* hero */
+  .hero{
+    background:
+      radial-gradient(1200px 500px at 78% -10%,rgba(176,134,68,.16),transparent 60%),
+      linear-gradient(180deg,var(--navy) 0%,var(--navy-d) 100%);
+    color:#fff;padding:88px 0 76px;position:relative;overflow:hidden;
+  }
+  .hero:after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:100% 40px;mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);
+  }
+  .hero .wrap{position:relative;z-index:2;max-width:760px}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.7rem);color:#fff;margin-bottom:22px}
+  .hero h1 .accent{color:var(--brass-l);font-style:italic}
+  .hero p.lede{font-size:1.18rem;color:rgba(255,255,255,.82);max-width:620px;margin-bottom:34px}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--brass);color:#fff;font-weight:600;font-size:1.02rem;
+    padding:15px 28px;border-radius:8px;text-decoration:none;
+    box-shadow:0 12px 30px -10px rgba(176,134,68,.6);
+    transition:transform .15s ease,background .15s ease;
+  }
+  .hero-cta:hover{background:var(--brass-l);transform:translateY(-2px)}
+  .stats{display:flex;gap:40px;margin-top:54px;flex-wrap:wrap}
+  .stat .num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--brass-l)}
+  .stat .lab{font-size:.86rem;color:rgba(255,255,255,.66);max-width:170px;margin-top:2px}
+
+  /* sections */
+  section{padding:78px 0}
+  .gap{background:var(--paper)}
+  .gap .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .gap h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:18px}
+  .gap p{color:var(--muted);font-size:1.05rem;margin-bottom:16px}
+  .gap .pull{
+    border-left:3px solid var(--brass);padding:18px 22px;background:var(--paper-d);
+    border-radius:0 8px 8px 0;font-family:'Fraunces',serif;font-size:1.22rem;color:var(--navy);
+  }
+  @media(max-width:760px){.gap .grid{grid-template-columns:1fr}}
+
+  /* deliverables */
+  .deliver{background:var(--navy);color:#fff}
+  .sec-head{max-width:600px;margin-bottom:48px}
+  .deliver .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);color:#fff;margin-bottom:14px}
+  .deliver .sec-head p{color:rgba(255,255,255,.72)}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{
+    background:var(--navy-l);border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;padding:30px;transition:border-color .2s ease,transform .2s ease;
+  }
+  .card:hover{border-color:var(--brass);transform:translateY(-3px)}
+  .card .k{font-family:'Fraunces',serif;color:var(--brass-l);font-size:1.4rem;margin-bottom:10px}
+  .card h3{font-size:1.18rem;color:#fff;margin-bottom:8px}
+  .card p{color:rgba(255,255,255,.7);font-size:.96rem}
+  @media(max-width:680px){.cards{grid-template-columns:1fr}}
+
+  /* packages */
+  .pkg{background:var(--paper)}
+  .pkg .sec-head{margin:0 auto 48px;text-align:center}
+  .pkg .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:12px}
+  .pkg .sec-head p{color:var(--muted)}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .tier{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px 28px;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .tier.featured{border:2px solid var(--brass);box-shadow:0 24px 50px -24px rgba(14,27,46,.4);transform:scale(1.02)}
+  .badge{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--brass);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:5px 14px;border-radius:20px;white-space:nowrap;
+  }
+  .tier h3{font-size:1.3rem;color:var(--navy);margin-bottom:6px}
+  .tier .price{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--ink);margin:8px 0 4px}
+  .tier .price small{font-size:.9rem;color:var(--muted);font-weight:400}
+  .tier .desc{color:var(--muted);font-size:.92rem;margin-bottom:20px;min-height:42px}
+  .tier ul{list-style:none;margin-bottom:26px;flex:1}
+  .tier li{padding:8px 0 8px 26px;position:relative;font-size:.95rem;border-bottom:1px solid var(--paper-d)}
+  .tier li:before{content:"✓";position:absolute;left:0;color:var(--brass);font-weight:700}
+  .tier .pick{
+    text-align:center;text-decoration:none;font-weight:600;padding:12px;border-radius:8px;
+    border:1.5px solid var(--navy);color:var(--navy);transition:.15s ease;
+  }
+  .tier .pick:hover{background:var(--navy);color:#fff}
+  .tier.featured .pick{background:var(--brass);border-color:var(--brass);color:#fff}
+  .tier.featured .pick:hover{background:var(--brass-l);border-color:var(--brass-l)}
+  @media(max-width:860px){.tiers{grid-template-columns:1fr;max-width:420px;margin:0 auto}.tier.featured{transform:none}}
+
+  /* exam prep */
+  .exam{background:var(--paper-d)}
+  .exam .sec-head{margin:0 auto 48px;text-align:center}
+  .exam .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:12px}
+  .exam .sec-head p{color:var(--muted)}
+  .prep{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;max-width:840px;margin:0 auto}
+  .prep .opt{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px 30px;
+    display:flex;flex-direction:column;
+  }
+  .prep .opt.bundle{border:2px solid var(--brass);box-shadow:0 24px 50px -24px rgba(14,27,46,.4)}
+  .prep .opt h3{font-size:1.3rem;color:var(--navy);margin-bottom:6px}
+  .prep .opt .price{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--ink);margin:6px 0 4px}
+  .prep .opt .price small{font-size:.88rem;color:var(--muted);font-weight:400}
+  .prep .opt .desc{color:var(--muted);font-size:.94rem;margin-bottom:20px}
+  .certlist{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;flex:1}
+  .certlist li{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:6px 14px;font-size:.85rem;font-weight:600;color:var(--navy);
+  }
+  .prep .opt .pick{
+    text-align:center;text-decoration:none;font-weight:600;padding:12px;border-radius:8px;
+    border:1.5px solid var(--navy);color:var(--navy);transition:.15s ease;
+  }
+  .prep .opt .pick:hover{background:var(--navy);color:#fff}
+  .prep .opt.bundle .pick{background:var(--brass);border-color:var(--brass);color:#fff}
+  .prep .opt.bundle .pick:hover{background:var(--brass-l);border-color:var(--brass-l)}
+  .examnote{text-align:center;color:var(--muted);font-size:.9rem;margin-top:26px}
+  @media(max-width:680px){.prep{grid-template-columns:1fr;max-width:420px}}
+
+  /* path */
+  .path{background:var(--navy);color:#fff}
+  .path .sec-head h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.5rem)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:s}
+  .step{counter-increment:s;padding-top:18px;border-top:2px solid var(--brass)}
+  .step .n{font-family:'Fraunces',serif;font-size:.9rem;color:var(--brass-l);font-weight:600}
+  .step .n:before{content:"0" counter(s) " — "}
+  .step h3{font-size:1.2rem;color:#fff;margin:8px 0 8px}
+  .step p{color:rgba(255,255,255,.7);font-size:.95rem}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  /* why */
+  .why{background:var(--paper)}
+  .why .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .why h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:18px}
+  .why p{color:var(--muted);margin-bottom:16px;font-size:1.05rem}
+  .compare{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .crow{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:14px 20px;border-bottom:1px solid var(--paper-d);align-items:center;font-size:.92rem}
+  .crow:last-child{border-bottom:0}
+  .crow.head{background:var(--navy);color:#fff;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+  .crow .mark{width:64px;text-align:center;font-weight:700}
+  .yes{color:var(--brass)}
+  .no{color:#b9bfc8}
+  @media(max-width:760px){.why .grid{grid-template-columns:1fr}}
+
+  /* booking */
+  .book{
+    background:linear-gradient(180deg,var(--navy-d),var(--navy));color:#fff;text-align:center;
+  }
+  .book h2{font-size:clamp(1.9rem,4vw,2.8rem);color:#fff;margin-bottom:12px}
+  .book>.wrap>p{color:rgba(255,255,255,.78);max-width:520px;margin:0 auto 36px;font-size:1.08rem}
+  form{
+    max-width:520px;margin:0 auto;text-align:left;
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;padding:32px;
+  }
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+    border-radius:8px;padding:12px 14px;color:#fff;font-family:inherit;font-size:.96rem;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.4)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brass);border-color:transparent}
+  .field select option{color:#111}
+  .submit{
+    width:100%;background:var(--brass);color:#fff;font-weight:700;font-size:1.02rem;
+    border:0;border-radius:8px;padding:15px;cursor:pointer;transition:background .15s ease;
+  }
+  .submit:hover{background:var(--brass-l)}
+  .formnote{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:14px;text-align:center}
+  .ok{display:none;background:rgba(176,134,68,.14);border:1px solid var(--brass);border-radius:8px;padding:14px;margin-bottom:18px;color:var(--brass-l);font-size:.95rem;text-align:center}
+
+  /* footer */
+  footer{background:var(--navy-d);color:rgba(255,255,255,.6);padding:54px 0 30px}
+  footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:32px}
+  footer .logo{margin-bottom:10px}
+  footer .contact a{color:rgba(255,255,255,.75);text-decoration:none;display:block;font-size:.92rem;margin-bottom:4px}
+  footer .contact a:hover{color:#fff}
+  .disclaimer{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;font-size:.78rem;color:rgba(255,255,255,.42);line-height:1.6}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Cleared <span>GovTech</span> Partners</div>
+    <div class="nav-links">
+      <a href="#gap">The gap</a>
+      <a href="#packages">Packages</a>
+      <a href="#exam">Exam prep</a>
+      <a href="#path">How it works</a>
+      <a href="#book" class="nav-cta">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">For transitioning cleared servicemembers</span>
+    <h1>You already hold the clearance. <span class="accent">Let's get you the GovTech role to match.</span></h1>
+    <p class="lede">Cleared GovTech Partners turns your military experience and security clearance into a competitive civilian career in government technology — résumé, interviews, and offer, handled.</p>
+    <a href="#book" class="hero-cta">Book your free 20-min call →</a>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">$130k+</div>
+        <div class="lab">Typical cleared cyber salary in target markets</div>
+      </div>
+      <div class="stat">
+        <div class="num">6–9 mo</div>
+        <div class="lab">Average clearance-reinvestigation savings to an employer</div>
+      </div>
+      <div class="stat">
+        <div class="num">1:1</div>
+        <div class="lab">Coaching built around your MOS and clearance level</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="gap" id="gap">
+  <div class="wrap">
+    <div class="grid reveal">
+      <div>
+        <span class="eyebrow">The gap</span>
+        <h2>An active clearance is worth a fortune. Most transitioning members give it away.</h2>
+        <p>The skills translate. The clearance is gold. But the civilian hiring process speaks a different language — keyword-screened résumés, behavioral interviews, salary negotiation — and nobody hands you that playbook on the way out.</p>
+        <p>Generalist transition programs treat every servicemember the same. They don't know what a TS/SCI is worth to a defense prime, or how to position an intel analyst for a GovTech role.</p>
+      </div>
+      <div class="pull">"Your clearance can save an employer six figures and nine months. We make sure your application actually says that."</div>
+    </div>
+  </div>
+</section>
+
+<section class="deliver">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What you get</span>
+      <h2>Four things that move you from cleared service to a GovTech offer.</h2>
+      <p>Every engagement is built around your clearance level, your specialty, and the markets you're targeting.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="k">01</div><h3>Clearance-forward résumé</h3><p>A civilian résumé that leads with your clearance and translates your MOS into language hiring managers and ATS screeners actually search for.</p></div>
+      <div class="card reveal"><div class="k">02</div><h3>Targeted role strategy</h3><p>A shortlist of the primes, agencies, and GovTech firms most likely to hire your profile — and where they're hiring most often.</p></div>
+      <div class="card reveal"><div class="k">03</div><h3>Interview preparation</h3><p>Mock interviews and answer frameworks for technical and behavioral rounds, tuned to cleared-environment expectations.</p></div>
+      <div class="card reveal"><div class="k">04</div><h3>Offer &amp; negotiation</h3><p>Know what your clearance is worth at the table and how to negotiate it — most members leave real money on it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pkg" id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Packages</span>
+      <h2>Pick the level of support that fits where you are.</h2>
+      <p>From a sharpened résumé to a full transition partner in your corner.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <h3>Résumé Ready</h3>
+        <div class="price">$350<small> / one-time</small></div>
+        <div class="desc">A clearance-forward résumé and LinkedIn built to get past screeners.</div>
+        <ul>
+          <li>1:1 intake call</li>
+          <li>Clearance-forward résumé</li>
+          <li>LinkedIn profile rewrite</li>
+          <li>One revision round</li>
+        </ul>
+        <a href="#book" class="pick">Get started</a>
+      </div>
+      <div class="tier featured reveal">
+        <div class="badge">Most popular</div>
+        <h3>Interview Ready</h3>
+        <div class="price">$599<small> / package</small></div>
+        <div class="desc">Everything in Résumé Ready, plus the prep that wins the room.</div>
+        <ul>
+          <li>Everything in Résumé Ready</li>
+          <li>Targeted role &amp; employer strategy</li>
+          <li>Two mock interviews + feedback</li>
+          <li>Behavioral answer frameworks</li>
+          <li>30 days of email support</li>
+        </ul>
+        <a href="#book" class="pick">Choose Interview Ready</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Offer Partner</h3>
+        <div class="price">$3,500<small> / engagement</small></div>
+        <div class="desc">A full transition partner from first call through signed offer — exam prep included.</div>
+        <ul>
+          <li>Everything in Interview Ready</li>
+          <li>Comprehensive cert exam prep (all 5)</li>
+          <li>Unlimited interview coaching</li>
+          <li>Offer &amp; salary negotiation</li>
+          <li>Weekly check-ins until hired</li>
+          <li>90 days of support</li>
+        </ul>
+        <a href="#book" class="pick">Become a partner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="exam" id="exam">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Certification exam prep</span>
+      <h2>Pass the certs that put you on the shortlist.</h2>
+      <p>Targeted prep for the certifications cleared GovTech employers ask for most. Add on à la carte, or get every cert covered in one bundle.</p>
+    </div>
+    <div class="prep">
+      <div class="opt reveal">
+        <h3>Single Cert Prep</h3>
+        <div class="price">$350<small> / cert</small></div>
+        <div class="desc">Focused, exam-specific prep for any one of the certifications below.</div>
+        <ul class="certlist">
+          <li>Security+</li>
+          <li>Network+</li>
+          <li>PenTest+</li>
+          <li>Certified Ethical Hacker</li>
+          <li>CySA+</li>
+        </ul>
+        <a href="#book" class="pick">Prep one cert</a>
+      </div>
+      <div class="opt bundle reveal">
+        <h3>Comprehensive Cert Prep</h3>
+        <div class="price">$1,500<small> / all five</small></div>
+        <div class="desc">Full exam prep across all five certifications — the complete cleared-cyber stack.</div>
+        <ul class="certlist">
+          <li>Security+</li>
+          <li>Network+</li>
+          <li>PenTest+</li>
+          <li>Certified Ethical Hacker</li>
+          <li>CySA+</li>
+        </ul>
+        <a href="#book" class="pick">Get the full bundle</a>
+      </div>
+    </div>
+    <p class="examnote">Comprehensive cert prep is included free with the <strong>Offer Partner</strong> package.</p>
+  </div>
+</section>
+
+<section class="path" id="path">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps from where you are to where you're headed.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">Book the call</div><h3>Free 20-minute intro</h3><p>Tell us your clearance, your specialty, and your timeline. We'll tell you straight whether we can help.</p></div>
+      <div class="step reveal"><div class="n">Build the plan</div><h3>Your transition strategy</h3><p>We build your résumé, target list, and prep plan around your profile and the markets you want.</p></div>
+      <div class="step reveal"><div class="n">Land the role</div><h3>Interview, offer, negotiate</h3><p>We coach you through every round and help you negotiate an offer that reflects what your clearance is worth.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="grid reveal">
+      <div>
+        <span class="eyebrow">Why us</span>
+        <h2>The free generalists don't know what your clearance is worth.</h2>
+        <p>Base transition offices and broad job-search programs do real work — but they're built for everyone leaving service, not for cleared technical talent targeting GovTech.</p>
+        <p>We specialize. That's the whole difference.</p>
+      </div>
+      <div class="compare">
+        <div class="crow head"><div>Compared to a free generalist program</div><div class="mark">Us</div><div class="mark">Them</div></div>
+        <div class="crow"><div>Clearance-forward positioning</div><div class="mark yes">✓</div><div class="mark no">—</div></div>
+        <div class="crow"><div>GovTech employer shortlist</div><div class="mark yes">✓</div><div class="mark no">—</div></div>
+        <div class="crow"><div>Cleared-environment interview prep</div><div class="mark yes">✓</div><div class="mark no">—</div></div>
+        <div class="crow"><div>Salary negotiation on the clearance</div><div class="mark yes">✓</div><div class="mark no">—</div></div>
+        <div class="crow"><div>1:1 support until hired</div><div class="mark yes">✓</div><div class="mark no">—</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <span class="eyebrow">Let's talk</span>
+    <h2>Book your free 20-minute call.</h2>
+    <p>No pitch, no pressure — just an honest read on whether we can help you land the role. Tell us a little about your situation and we'll be in touch within one business day.</p>
+    <form id="bookForm" onsubmit="return handleSubmit(event)">
+      <div class="ok" id="okMsg">Thanks — your request is in. We'll reach out within one business day to schedule your call.</div>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" placeholder="Jordan Avery" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@email.com" required>
+      </div>
+      <div class="field">
+        <label for="clearance">Clearance level</label>
+        <select id="clearance" name="clearance" required>
+          <option value="" disabled selected>Select one</option>
+          <option>Secret</option>
+          <option>Top Secret</option>
+          <option>TS/SCI</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="timeline">When do you separate (or did you)?</label>
+        <input id="timeline" name="timeline" type="text" placeholder="e.g. 3 months out, or already separated">
+      </div>
+      <div class="field">
+        <label for="goal">What's your target role or field?</label>
+        <textarea id="goal" name="goal" rows="3" placeholder="Cybersecurity analyst, cloud engineer, etc."></textarea>
+      </div>
+      <button class="submit" type="submit">Request my free call</button>
+      <p class="formnote">Prefer to pick a time yourself? <a href="#" style="color:var(--brass-l)">Use the scheduling link →</a></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="logo">Cleared <span style="color:var(--brass-l)">GovTech</span> Partners</div>
+        <div style="font-size:.9rem;max-width:280px">From cleared service to GovTech — career coaching for transitioning servicemembers and veterans.</div>
+      </div>
+      <div class="contact">
+        <a href="mailto:hello@your-website.com">hello@your-website.com</a>
+        <a href="tel:+10000000000">(000) 000-0000</a>
+        <a href="https://your-website.com">your-website.com</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      Career coaching and preparation services for transitioning servicemembers and veterans. We do not guarantee employment and do not provide VA disability claims assistance. © Cleared GovTech Partners.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('okMsg').style.display='block';
+    e.target.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=true);
+    document.getElementById('okMsg').scrollIntoView({behavior:'smooth',block:'center'});
+    return false;
+  }
+</script>
+</body>
+</html>
